@@ -1,12 +1,32 @@
-services: 
+services:
   app:
     build:
       context: .
-      args: 
+      args:
         - DEV=true
-    ports: 
+    ports:
       - "8000:8000"
     volumes:
       - ./app:/app
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASSWORD=changeme
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=devdb
+      - POSTGRES_PASSWORD=devuser
+      - POSTGRES_DB=changeme
+
+volumes:
+  dev-db-data:
+    driver: local
