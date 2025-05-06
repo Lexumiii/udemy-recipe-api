@@ -13,6 +13,7 @@ def add(x, y):
     """
     return x + y
 
+
 def subtract(x, y):
     """Subtract x from y and return the result
     Args:
@@ -22,6 +23,3 @@ def subtract(x, y):
         int or float: The difference of x and y.
     """
     return y - x
-
-
-
