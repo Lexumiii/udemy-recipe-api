@@ -1,0 +1,19 @@
+# Git 
+.git
+.gitignore
+
+# Docker
+.docker
+
+# General
+.DS_Store
+*.log
+
+# Python
+app/__pycache__/
+app/*/__pycache__/
+app/*/*/__pycache__/
+app/*/*/*/__pycache__/
+.env/
+.venv/
+venv/
